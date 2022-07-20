@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>imageUpload</title>
+<!--    <script type="text/javascript" src="./CryTimeForImage.js"></script>-->
+</head>
+<body>
+    <form id="imageForm">
+        <label for="imageInput">产品原图</label>
+        <input type="file" id="imageInput" name="imageInput" /><!--onchange="ImageToCiphertext(this)"-->
+        <img id="img" src="xx.jpg" alt="">
+        <canvas id="myCanvas1"></canvas>
+<!--        <button type="submit" >提交</button>-->
+    </form>
+<!--<script type="text/javascript" src="./CryTimeForImage.js"></script>-->
+<script>
+    const input = document.getElementById("imageInput"); //获取选择图片的input元素
+    const img = document.getElementById("img");
+    if (typeof FileReader === 'undefined') {
+        aaa.innerHTML = "抱歉，你的浏览器不支持 FileReader";
+        input.setAttribute('disabled', 'disabled');
+    } else {
+        input.addEventListener('change', readFile, false); //如果支持就监听改变事件，
+        //一旦改变了就运行readFile函数。
+    }
+    function ImageToCiphertext(fileDOM){
+
+        // let file = fileDOM.files[0]
+        // let newReader = new FileReader();
+        // newReader.readAsDataURL(file);
+        //
+        // newReader.onload = function(){
+        //     //const buffer = Buffer.from(result.target.result);
+        //     //console.log(newReader.result);
+        //
+        //     const ImageSrc = newReader.result;
+        //     const input = document.getElementById("imageInput"); //获取选择图片的input元素
+        //     const img = document.getElementById("img");
+        //     //1.创建画布，将图片画入画布
+        //     // var canvas = document.getElementById("myCanvas1");
+        //     // var ctx = canvas.getContext("2d");
+        //     // var textData, originalData;
+        //     // img.src = ImageSrc;
+        //     // img.setAttribute("crossOrigin", "anonymous");
+        //     // let img = new Image();
+        //     //2.替换URL的部分字符
+        //     //3.画入画布，查看图片
+        //     img.setAttribute('src',this.result);
+        //     //ImageSrc.replace("h",)
+        //
+        //
+        //     // console.log(ImageSrc.length);
+        //
+        //
+        //
+        //     // const sliceImageLength = ImageSrc.length/100;
+        //     // let startStr = ImageSrc.slice(0,sliceImageLength);
+        //     // let middleStr = ImageSrc.slice(sliceImageLength,sliceImageLength*2);
+        //     // let endStr = ImageSrc.slice(sliceImageLength*2,sliceImageLength*3);
+        //
+        //     // console.log(ImageSrc);
+        // }
+
+    }
+    function readFile() {
+        var file = this.files[0]; //获取file对象
+        //判断file的类型是不是图片类型。
+        if (!/image\/\w+/.test(file.type)) {
+            alert("文件必须为图片！");
+            return false;
+        }
+
+        var reader = new FileReader(); //声明一个FileReader实例
+        reader.readAsDataURL(file); //调用readAsDataURL方法来读取选中的图像文件
+        //最后在onload事件中，获取到成功读取的文件内容，并以插入一个img节点的方式显示选中的图片
+        reader.onload = function (e) {
+            //img.setAttribute('src',  this.result);
+            console.log(reader.result);
+            let subString = reader.result.slice(24,46);
+            let changedUrl = reader.result.replace(subString,'mf')//.replace('mf',subString)//.replace(/mf/g,'f');
+            //let DoubleChangedUrl = changedUrl.replace('m','f');
+            img.setAttribute('src',changedUrl);
+
+        }
+    }
+</script>
+</body>
+</html>

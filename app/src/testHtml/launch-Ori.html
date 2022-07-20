@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>上架数据产品页</title>
+    <script src="./app.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="container" id="launch-page">
+    <h1>上架产品</h1>
+    <div class="container">
+        <div class="row">
+            <div style="display: none;" class="alert alert-success col-sm-8" id="msg"></div>
+        </div>
+        <div class="row">
+            <form class="col-sm-8" id="add-item-to-store">
+                <div class="form-group row">
+                    <label for="product-name" class="col-sm-2 control-label">名称</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="product-name" class="form-control" id="product-name" placeholder="数据名称" required="required" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="product-description" class="col-sm-2 control-label">数据描述</label>
+                    <div class="col-sm-10">
+                            <input type="text" name="product-description" class="form-control" id="product-description" placeholder="数据描述" required="required" autocomplete="off">
+<!--                        <textarea class="form-control" name="product-description" rows="3" id="product-description" placeholder="输入测试数据的描述" required="required"></textarea>-->
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="product-image" class="col-sm-2 control-label">上传数据图片</label>
+                    <div class="col-sm-10">
+                        <input type="file" name="product-image" class="form-control" id="product-image" required="required">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="product-price" class="col-sm-2 control-label">数据价格</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="product-price" id="product-price" required="required" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="password-A" class="col-sm-2 control-label">输入嵌入的密码</label>
+                    <div class="col-sm-10">
+                        <input type=password name="password-A" class="form-control" id="password-A" required="required">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">提交</button>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <a href="../index.html" class="btn btn-primary">返回主页</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

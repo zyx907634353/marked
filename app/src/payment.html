@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <title>Mark</title>
+<!--    <link rel="stylesheet" href="./stylesheet/styles.css">-->
+    <script src="./app.js"></script>
+</head>
+
+<body class="section-dark">
+<nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
+    <a class="navbar-brand" href="index.html">
+        <i class="fa d-inline fa-lg fa-adjust"></i>
+        <b>Mark</b>
+    </a>
+    <a class="nav-link text-nowrap text-muted" id="eth-address">
+        <i class="fa fa-user fa-fw"></i></a>
+    <div class="container-fluid">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar3SupportedContent" aria-controls="navbar3SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center justify-content-end" id="navbar3SupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <!--                <li class="nav-item active">-->
+                    <a class="nav-link" href="index.html">返回主页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">关于我们</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#latest">最近上架</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="launch.html">上架商品</a>
+                </li>
+            </ul>
+            <a class="ml-3 btn navbar-btn btn-primary" data-target="#sign-in" data-toggle="modal" style="display: none">登录</a>
+        </div>
+    </div>
+</nav>
+
+<!--<div class="py-5 filter-dark section-dark" id="launch-page" style="background-image: url(&quot;https://images.pexels.com/photos/909495/pexels-photo-909495.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260&quot;); background-repeat: no-repeat; ;background-position:center center;background-size:cover;">-->
+<div class="py-5 filter-dark section-dark" id="payment-page" style="background-image: url('https://assets.imgix.net/unsplash/pineneedles.jpg?blur=500&fit=crop&w=1260&h=400'); background-repeat: no-repeat; ;background-position:center center;background-size:cover;">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="align-self-center col-md-6 text-white">
+                <h3 class="text-center text-md-left display-3">购买你喜欢的</h3>
+                <!--                <p class="lead">Sell item for cryptocurrency</p>-->
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <h3 class="pb-3 text-muted">产品信息</h3>
+
+                        <form class="form-horizontal" id="add-password-B">
+
+                            <div class="alert alert-success fade show" id="msg-success-payment" role="alert" style="display: none;">
+                                <strong>购买成功!</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+
+                            <div class="form-group p-0">
+                                <label for="product-id" >产品序号：</label>
+                                    <input type="text" name="product-id"  class="form-control" id="product-id" placeholder="请输入要购买的产品序号" required="required" autocomplete="on" readonly="readonly">
+                            </div>
+
+<!--                            <div class="form-group p-0">-->
+<!--                                <label for="product-name">产品名称</label>-->
+<!--                                <input class="form-control" name="product-name" id="product-name" type="text" required="required" autocomplete="off">-->
+<!--                            </div>-->
+
+<!--                            <div class="form-group py-1">-->
+<!--                                <label for="product-description">产品描述</label>-->
+<!--                                <input class="form-control" name="product-description" id="product-description" type="text" required="required" placeholder="请输入您对商品的关键描述" autocomplete="off">-->
+<!--                                &lt;!&ndash;<textarea class="form-control" id="product-description" placeholder="请输入您对商品的关键描述" rows="3"></input>&ndash;&gt;-->
+<!--                            </div>-->
+
+<!--                            <div class="form-group py-1">-->
+<!--                                <label for="product-image">产品原图</label>-->
+<!--                                <input type="file" name="product-image" class="form-control" id="product-image" required="required">-->
+<!--                            </div>-->
+
+                            <!--产品种类-->
+                            <!--                            <div class="form-group py-1">-->
+                            <!--                                <label for="product-category" class="">Category</label>-->
+                            <!--                                <select class="form-control" name="product-category" id="product-category">-->
+                            <!--                                    <option value="Art">Art</option>-->
+                            <!--                                    <option value="Books">Books</option>-->
+                            <!--                                    <option value="Jewellery">Jewellery</option>-->
+                            <!--                                    <option value="Digital">Digital media</option>-->
+                            <!--                                    <option value="Electronics">Electronics</option>-->
+                            <!--                                    <option value="Handmade">Handmade</option>-->
+                            <!--                                    <option value="Electronics">Handmade</option>-->
+                            <!--                                    <option value="Handmade">Fashion</option>-->
+                            <!--                                </select>-->
+                            <!--                            </div>-->
+                            <!--产品状态-->
+                            <!--                            <div class="form-group py-1">-->
+                            <!--                                <label for="product-condition">Condition</label>-->
+                            <!--                                <select class="form-control" name="product-condition" id="product-condition">-->
+                            <!--                                    <option value="New">New</option>-->
+                            <!--                                    <option value="Used">Used</option>-->
+                            <!--                                </select>-->
+                            <!--                            </div>-->
+
+                            <!--                            <div class="form-group py-1">-->
+                            <!--                                <label for="product-price">价格</label>-->
+                            <!--                                <div class="input-group">-->
+                            <!--                                    <input type="text" class="form-control" id="product-price" placeholder="e.g 0.5" autocomplete="off">-->
+                            <!--                                    <div class="input-group-prepend">-->
+                            <!--                                        <span class="input-group-text" id="basic-addon1">Ether</span>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+
+                            <div class="form-group p-0">
+                                <label for="product-price" class="col-sm-2 control-label">价格</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="product-price" id="product-price" required="required" autocomplete="on" readonly="readonly">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Ether</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group p-0">
+                                <label for="password-B">输入嵌入的密码</label>
+                                <input type=password name="password-B" class="form-control" id="password-B" required="required" placeholder="请勿将您的隐私信息作为密码！">
+                                <!-- <input class="form-control" id="product-name"  type="text" required="required"> -->
+                            </div>
+
+                            <button type="submit" class="btn mt-2 btn-outline-dark py-1">购买</button>
+
+                            <a href="index.html" class="btn mt-2 btn-outline-dark py-1 ">返回</a>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="py-5 bg-secondary bg-gradient filter-light filter-dark filter-color filter-gradient section-aquamarine">-->
+<!--    <div class="container-fluid">-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-12">-->
+<!--                <h1 class="text-center mb-5 text-white">Recently listed</h1>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="row">-->
+<!--            <div class="p-0 col-md-2 col-6">-->
+<!--                <a>-->
+<!--                    <img src="https://images.pexels.com/photos/721168/pexels-photo-721168.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" class="img-fluid"> </a>-->
+<!--            </div>-->
+<!--            <div class="p-0 col-md-2 col-6">-->
+<!--                <a href="stories.html">-->
+<!--                    <img class="img-fluid" src="https://images.pexels.com/photos/266621/pexels-photo-266621.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"> </a>-->
+<!--            </div>-->
+<!--            <div class="p-0 col-md-2 col-6">-->
+<!--                <a href="stories.html">-->
+<!--                    <img src="https://images.pexels.com/photos/1577/road-fashion-vintage-bag.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" class="img-fluid"> </a>-->
+<!--            </div>-->
+<!--            <div class="p-0 col-md-2 col-6">-->
+<!--                <a href="stories.html">-->
+<!--                    <img src="https://images.pexels.com/photos/280248/pexels-photo-280248.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" class="img-fluid"> </a>-->
+<!--            </div>-->
+<!--            <div class="p-0 col-md-2 col-6">-->
+<!--                <a href="stories.html">-->
+<!--                    <img src="https://images.pexels.com/photos/533733/pexels-photo-533733.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" class="img-fluid"> </a>-->
+<!--            </div>-->
+<!--            <div class="p-0 col-md-2 col-6">-->
+<!--                <a href="stories.html">-->
+<!--                    <img src="https://images.pexels.com/photos/326583/pexels-photo-326583.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" class="img-fluid"> </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--style="display: none"-->
+<!--<div id="getMarkImage" ></div>-->
+
+
+<canvas id="myCanvas" style="display: none"></canvas>
+
+<div class="py-5 bg-dark text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <p class="lead">订阅我们，了解最新消息</p>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="e-mail"> </div>
+                    <button type="submit" class="btn btn-primary ml-3">订阅</button>
+                </form>
+            </div>
+            <div class="col-4 col-md-1 align-self-center">
+                <a href="https://www.facebook.com" target="_blank">
+                    <i class="fa fa-fw fa-facebook fa-3x text-center nav-item"></i>
+                </a>
+            </div>
+            <div class="col-4 col-md-1 align-self-center">
+                <a href="https://twitter.com" target="_blank">
+                    <i class="fa fa-fw fa-twitter fa-3x nav-item"></i>
+                </a>
+            </div>
+            <div class="col-4 col-md-1 align-self-center">
+                <a href="https://www.instagram.com" target="_blank">
+                    <i class="fa fa-fw fa-instagram fa-3x nav-item"></i>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-3 text-center">
+                <p>© Copyright xx</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade w-100" id="sign-in" aria-hidden="true" aria-labelledby="sign-in" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">How to sign in </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3>Mark is using Metamask</h3>
+                <p> You need metamask extension in order to login </p>
+                <p>
+                    <i class="fa fa-download fa-fw"></i> Download
+                    <a href="https://metamask.io/">Metamask plugin</a> for your browser</p>
+                <p>
+                    <i class="fa fa-user fa-fw"></i> Create an Ethereum Wallet using Metamask</p>
+                <p>
+                    <i class="fa fa-key fa-fw"></i> Log in to Metamask with your Ethereum Account</p>
+                <p>
+                    <i class="fa fa-info fa-fw"></i>
+                    <a href="about.html" class="text-primary"> More information</a>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">I understand</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script >
+        function getParams(key) {
+        var reg = new RegExp("(^|&)" + key + "x([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+        return unescape(r[2]);
+    }
+        return null;
+    };
+        //$("product-id").content=(getParams("product-number"));
+        //console.log("参数param1:"+getParams("product-name"));//输出aa
+        //console.log("参数param2:"+getParams("product-number"));//输出bb
+
+</script>
+<script>
+    document.getElementById("product-id").value=getParams("69i57j0i512j0i131i4");
+    document.getElementById("product-price").value=getParams("j69i60j6");
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

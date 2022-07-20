@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button onclick="dbTest()">测试</button>
+    <button onclick="DBindex()">索引查找测试</button>
+    <button onclick="getPrimaryKey()">1111</button>
+<script>
+    var db;
+
+    var dbVersion = 1; // 全局的indexedDB数据库实例。
+
+    // 2\. 通过IDBFactory接口的open方法打开一个indexedDB的数据库实例
+    // 第一个参数： 数据库的名字，第二个参数：数据库的版本。返回值是一个：IDBRequest实例,此实例有onerror和onsuccess事件。
+    let request = window.indexedDB.open("indexedDBTest", dbVersion);
+
+
+    // 打开数据库成功后，自动调用onsuccess事件回调。
+    request.onsuccess = function (e) {
+        console.log("开启成功success");
+        db = e.target.result; // 获取到 demoDB对应的 IDBDatabase实例,也就是我们的数据库。
+        db.onversionchange = () => {
+            db.close();
+        }
+    };
+
+    // 打开数据库失败
+    request.onerror = function (e) {
+        console.log("开启db失败" + e.currentTarget.error.message);
+    };
+
+    // 第一次打开成功后或者版本有变化自动执行以下事件：一般用于初始化数据库。
+    request.onupgradeneeded = function (e) {
+        console.log("版本修改了！");
+        db = e.target.result;
+        if (db.objectStoreNames.contains("users")) {
+            db.deleteObjectStore("users")
+        }
+        var objectStore = db.createObjectStore("users", {keyPath: "address"})
+         objectStore.createIndex('autoIndex', 'autoIndex', { unique: false });
+         objectStore.createIndex('password', 'password', { unique: false});
+        console.log('数据库版本更改为： ' + dbVersion);
+    };
+    // let user = {
+    //     username: '111007',
+    //     phone: '189111833',
+    //     address: 'aicoder.com'
+    // };
+    //
+    function dbTest() {
+            // //user.username = parseInt(user.username) + 1
+            // // 创建一个事务，类型：IDBTransaction，文档地址： https://developer.mozilla.org/en-US/docs/Web/API/IDBTransaction
+            // let transaction = db.transaction("users", "readwrite"),
+            //     // 通过事务来获取IDBObjectStore
+            //     store = transaction.objectStore("users"),
+            //     result1 = store.add({autoIndex:'',pwd:'msss'});
+            //     result1.onsuccess = (e) => {
+            //         console.log("success!");
+            //     }
+
+            }
+    function DBindex(){
+        // let transaction = db.transaction("users","readwrite"),
+        //     store = transaction.objectStore("users");
+        //     var index = store.index('address');
+        //     var request = index.get('0xxx');
+        //     request.onsuccess = function (e) {
+        //         var result = e.target.result;
+        //         if (result) {
+        //             console.log(result)
+        //         } else {
+        //             console.log("wrong!");
+        //         }
+        //     }
+    }
+    function getPrimaryKey(){
+        let transaction = db.transaction("users","readwrite");
+            // store = transaction.objectStore("users");
+        var objectStore = transaction.objectStore("users");
+        var request = objectStore.count();
+        request.onsuccess = function(e) {
+            var result = e.target.result;
+            console.log(result);
+            if(result == 0){
+                objectStore.add({address:"0x00",autoIndex:1,password:"p123"})
+            }else{
+                console.log("输出了")
+                objectStore.add({address:"0x000",autoIndex:(result+1),password:"p1234"})
+            }
+        }
+    }
+</script>
+</body>
+</html>

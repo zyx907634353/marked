@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>选择您感兴趣的数据</title>
+    <script src="./app.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
+    <a class="navbar-brand" href="#">
+        <i class="fa d-inline fa-lg fa-adjust"></i>
+        <b>Mark</b>
+    </a>
+    <a class="nav-link text-nowrap text-muted" id="eth-address">
+        <i class="fa fa-user fa-fw"></i>
+    </a>
+    <div class="container-fluid">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar3SupportedContent" aria-controls="navbar3SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center justify-content-end" id="navbar3SupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <!--                <li class="nav-item active">-->
+                    <a class="nav-link" href="index.html">返回主页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">关于我们</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#latest">最近上架</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="launch.html">上架商品</a>
+                </li>
+            </ul>
+            <a class="ml-3 btn navbar-btn btn-primary" data-target="#sign-in" data-toggle="modal" style="display: none">登录</a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid" id="data-list-page">
+    <h1>数据选择</h1>
+    <div class="row">
+        <!--        <div class="col-lg-2 col-sm-12">-->
+        <!--            <h2>Categories</h2>-->
+        <!--            <div id="categories"></div>-->
+        <!--        </div>-->
+        <div class="col-lg-10 col-sm-12">
+            <h2 class="text-center">数据部分信息：</h2>
+
+            <canvas id="innerCanvas" style="display: none"></canvas>
+
+            <div class="row-cols-lg-1" id="all-product-list"></div>
+<!--            <h2 class="text-center">Products In Reveal Stage</h2>-->
+<!--            <div class="row" id="product-reveal-list"></div>-->
+        </div>
+
+    </div>
+<!--    <a href="payment.html" class="btn btn-primary">购买数据</a>-->
+</div>
+
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--&lt;!&ndash;    <meta name="viewport" content="width=device-width, initial-scale=1">&ndash;&gt;-->
+<!--&lt;!&ndash;    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">&ndash;&gt;-->
+<!--    <title>Mark</title>-->
+
+<!--    <link rel="stylesheet" href="./stylesheet/styles.css">-->
+<!--&lt;!&ndash;    <script src="./app.js"></script>&ndash;&gt;-->
+<!--</head>-->
+
+<!--<body class="h-100">-->
+<!--<nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">-->
+<!--    <a class="navbar-brand" href="index.html">-->
+<!--        <i class="fa d-inline fa-lg fa-adjust"></i>-->
+<!--        <b>Mark</b>-->
+<!--    </a>-->
+<!--    <a class="nav-link text-nowrap text-muted" id="eth-address">-->
+<!--        <i class="fa fa-user fa-fw"></i>-->
+<!--    </a>-->
+<!--    <div class="container-fluid">-->
+<!--        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar3SupportedContent" aria-controls="navbar3SupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+<!--        <div class="collapse navbar-collapse text-center justify-content-end" id="navbar3SupportedContent">-->
+<!--            <ul class="navbar-nav">-->
+<!--                <li class="nav-item active">-->
+<!--                    <a class="nav-link" href="index.html">Home</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#">About</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="data-list.html">Listings</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="list-item.html">List item</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <a class="ml-3 btn navbar-btn btn-primary" data-target="#sign-in" data-toggle="modal">Sign in</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+
+
+<!--<div class="py-5">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-12">-->
+<!--                <h3 class="card-title text-dark text-uppercase" id="product-name">-->
+<!--                    <b>Oil Painting</b>-->
+<!--                </h3>-->
+<!--                <div id="all-product-list"></div>-->
+<!--&lt;!&ndash;                <div class="card" id="product-details">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <img src="https://ipfs.io/ipfs/QmfJKN63jJ1fZHnvhggntxRYo1JPdUHtzUTR1YqGCPBxM9" alt="Card image cap" class="card-img-top mx-auto" id="product-image">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="card-body">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <h5 class="card-title bg-light text-secondary" id="product-name">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <b>Art</b>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p class="card-text" id="product-desc">Thundercats migas plaid before they sold out cray farm-to-table cornhole. Poutine tumblr iceland, pitchfork leggings literally art party kickstarter copper mug raclette vice salvia pinterest hexagon viral.&nbsp;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <br>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <br>Chia taiyaki hella 90's, DIY portland mustache intelligentsia master cleanse thundercats pour-over. Offal semiotics pinterest plaid.&nbsp;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <br>Synth mustache etsy, messenger bag art party cray hella hammock prism swag normcore gastropub. Butcher chartreuse marfa, occupy retro twee chillwave cloud bread.&nbsp;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <br>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <br>Fam meh pitchfork, vape deep v scenester art party organic meggings ennui af beard.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p class="card-text p-y-1">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <b>Condition:&nbsp;&ndash;&gt;-->
+<!--&lt;!&ndash;                                <span class="badge badge-pill badge-primary">New</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </b>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="input-group-prepend w-100">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <span class="input-group-text" id="basic-addon1">Ether </span>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <p class="nav-link text-nowrap bg-secondary text-light" id="price">1</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <a href="#" class="btn btn-success ml-auto">Buy product</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<!--<div class="modal fade w-100" id="sign-in" aria-hidden="true" aria-labelledby="sign-in" role="dialog" tabindex="-1">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h4 class="modal-title" id="myModalLabel">How to sign in </h4>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">×</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <h3>OGEO is using Metamask</h3>-->
+<!--                <p> You need metamask extension in order to login </p>-->
+<!--                <p>-->
+<!--                    <i class="fa fa-download fa-fw"></i> Download-->
+<!--                    <a href="https://metamask.io/">Metamask plugin</a> for your browser</p>-->
+<!--                <p>-->
+<!--                    <i class="fa fa-user fa-fw"></i> Create an Ethereum Wallet using Metamask</p>-->
+<!--                <p>-->
+<!--                    <i class="fa fa-key fa-fw"></i> Log in to Metamask with your Ethereum Account</p>-->
+<!--                <p>-->
+<!--                    <i class="fa fa-info fa-fw"></i>-->
+<!--                    <a href="#about.html" class="text-primary"> More information</a>-->
+<!--                </p>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-primary" data-dismiss="modal">I understand</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--&lt;!&ndash;<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>&ndash;&gt;-->
+<!--</body>-->
+
+<!--</html>-->
+
